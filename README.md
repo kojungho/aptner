@@ -1,4 +1,4 @@
-# 아파트너 : 차량, 관리비 노티
+# 아파트너 : 차량, 관리비 노티 내가 일부 수정한거
 ![HACS][hacs-shield]
 
 아파트너 HA Custom_component입니다.
