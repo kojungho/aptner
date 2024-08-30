@@ -3,11 +3,11 @@
   "config": {
     "error": {
       "invalid_login": "로그인에 실패했습니다. 아이디 또는 비밀번호를 확인해주세요.",
-      "unknown": "Unexpected error"
+      "unknown": "예기치 못한 오류가 발생했습니다. 관리자에게 문의해주세요."
     },
     "step": {
       "user": {
-        "description": "아파트너 아이디/비밀번호",
+        "description": "아파트너 아이디와 비밀번호를 입력하세요.",
         "data": {
           "username": "아이디",
           "password": "비밀번호"
@@ -18,11 +18,16 @@
   "services": {
     "car_reservation": {
       "name": "방문 차량 예약",
-      "description": "오늘 날짜로 차량 예약을 합니다.",
+      "description": "차량을 예약할 날짜와 차량 번호를 입력합니다.",
       "fields": {
         "car_no": {
-          "name": "차량 번호 입력",
+          "name": "차량 번호",
           "description": "오늘 방문할 차량 번호를 입력해주세요."
+        },
+        "reservation_days": {
+          "name": "예약 일수",
+          "description": "차량을 예약할 일수를 입력해주세요. 기본값은 1일입니다.",
+          "example": 1
         }
       }
     }
