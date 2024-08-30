@@ -1,10 +1,6 @@
-"""동행 복권 통합 모듈을 위한 설정 흐름."""
-
 import logging
 from typing import Any
-
 import voluptuous as vol
-
 import homeassistant.helpers.config_validation as cv
 from homeassistant.config_entries import ConfigFlow, ConfigFlowResult
 from homeassistant.const import CONF_PASSWORD, CONF_USERNAME
@@ -20,11 +16,8 @@ STEP_USER_DATA_SCHEMA = vol.Schema(
     }
 )
 
-
 async def async_validate_login(hass, username: str, password: str) -> dict[str, Any]:
-    """사용자 입력을 검증하여 연결할 수 있는지 확인합니다.
-    Data는 STEP_USER_DATA_SCHEMA로부터 키 값을 갖고 있습니다.
-    """
+    """사용자 입력을 검증하여 연결할 수 있는지 확인합니다."""
     client = Aptner(hass, username, password)
 
     errors = {}
@@ -34,7 +27,6 @@ async def async_validate_login(hass, username: str, password: str) -> dict[str, 
         _LOGGER.exception("아파트너 로그인 실패: %s", ex)
         errors["base"] = "invalid_login"
     return errors
-
 
 class AptnerConfigFlow(ConfigFlow, domain=DOMAIN):
     """아파트너 설정 흐름을 처리합니다."""
