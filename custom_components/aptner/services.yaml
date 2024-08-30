@@ -1,6 +1,28 @@
 car_reservation:
+  description: "방문 차량 예약을 설정합니다."
   fields:
     car_no:
+      description: "오늘 방문할 차량 번호를 입력해주세요. 예: 12가1234 또는 123가1234"
+      example: "12가1234"
       required: true
       selector:
         text:
+          mode: text
+      validation:
+        regex: "^(\\d{2,3}[가-힣]\\d{4})$"
+        error: "차량 번호는 '12가1234' 또는 '123가1234' 형식이어야 합니다."
+    reservation_days:
+      description: "차량을 예약할 일수를 입력해주세요. 최대 30일까지 가능합니다."
+      example: 1
+      default: 1
+      required: false
+      selector:
+        number:
+          min: 1
+          max: 30
+          mode: box
+      validation:
+        range:
+          min: 1
+          max: 30
+          error: "예약 일수는 1일 이상 30일 이하이어야 합니다."
